@@ -1,0 +1,16 @@
+def split_file_into_strands(oxbs_file):
+
+    file_plus = open("plus_strand.txt", "a+")
+    file_minus = open("minus_strand.txt", "a+")
+
+    f = open(oxbs_file, "rb")
+
+    for line in f:
+        new_element = line.strip("\n")
+        new_element.strip()
+        pow = new_element.split("\t")
+
+        if pow[6] == "-":
+            file_minus.write(new_element + "\n")
+        if pow[6] == "+":
+            file_plus.write(new_element + "\n")
